@@ -1,0 +1,78 @@
+{
+  "name": "collagist",
+  "version": "0.0.1",
+  "description": "Application/property server for microfrontend architecture",
+  "scripts": {
+    "dev:client": "webpack-dev-server --mode=development --port 9000 --env.isLocal=true",
+    "dev:server": "nodemon server/app.ts",
+    "build": "webpack --mode=production",
+    "lint": "eslint . --ext js,jsx,ts,tsx",
+    "test": "cross-env BABEL_ENV=test jest --passWithNoTests",
+    "format": "prettier --write \"./**\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dazedbear/collagist.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dazedbear/collagist/issues"
+  },
+  "homepage": "https://github.com/dazedbear/collagist#readme",
+  "husky": {
+    "hooks": {
+      "prepare-commit-msg": "exec < /dev/tty && git cz --hook || true",
+      "pre-commit": "pretty-quick --staged && concurrently npm:test npm:lint"
+    }
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.4",
+    "@babel/plugin-transform-runtime": "^7.8.3",
+    "@babel/preset-env": "^7.7.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@babel/runtime": "^7.8.7",
+    "@types/jest": "^25.2.1",
+    "@types/systemjs": "^6.1.0",
+    "@types/webpack-env": "^1.15.1",
+    "babel-eslint": "^11.0.0-beta.2",
+    "concurrently": "^5.1.0",
+    "cross-env": "^7.0.2",
+    "cz-conventional-changelog": "^3.3.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-config-ts-important-stuff": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "html-webpack-plugin": "^4.0.4",
+    "husky": "^4.2.3",
+    "jest": "^25.2.7",
+    "jest-cli": "^25.2.7",
+    "prettier": "^2.0.4",
+    "pretty-quick": "^2.0.1",
+    "serve": "^11.2.0",
+    "ts-config-single-spa": "^1.7.0",
+    "typescript": "^3.8.3",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2",
+    "webpack-config-single-spa-ts": "^1.4.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "firebase": "^8.2.1",
+    "helmet": "^4.2.0",
+    "single-spa": "^5.8.3",
+    "single-spa-layout": "^1.2.1"
+  }
+}
